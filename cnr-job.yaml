@@ -12,6 +12,8 @@ job:
     - "2000"
     - --epochs
     - "2"
+    - --baseline-epochs
+    - "2"
     - --pgd-steps
     - "7"
     - --batch-size
@@ -27,12 +29,9 @@ environment:
   python: "3.11"
   requirements: requirements.txt
 
-inputs:
-  required_files:
-    - models/mnist_vgg16.pth
-
 outputs:
   paths:
+    - models/
     - results/
     - defended_models/
     - checkpoints/
