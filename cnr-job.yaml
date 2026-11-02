@@ -1,0 +1,38 @@
+version: 1
+
+job:
+  name: triangle-attack-demo
+  entrypoint: triangle_attack.py
+  args:
+    - --models
+    - vgg16
+    - --samples
+    - "10"
+    - --max-queries
+    - "2000"
+    - --epochs
+    - "2"
+    - --pgd-steps
+    - "7"
+    - --batch-size
+    - "64"
+
+resources:
+  cpus: 8
+  memory: 32GB
+  gpus: 1
+  time: "02:00:00"
+
+environment:
+  python: "3.11"
+  requirements: requirements.txt
+
+inputs:
+  required_files:
+    - models/mnist_vgg16.pth
+
+outputs:
+  paths:
+    - results/
+    - defended_models/
+    - checkpoints/
