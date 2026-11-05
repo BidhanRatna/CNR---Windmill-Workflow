@@ -1,0 +1,20 @@
+version: 1
+
+job:
+  name: cnr-smoke-test
+
+steps:
+  - name: Run program
+    command:
+      - python3
+      - hello.py
+
+resources:
+  cpus: 1
+  memory: 512MB
+  gpus: 0
+  time: "00:02:00"
+
+outputs:
+  paths:
+    - results/hello.txt
