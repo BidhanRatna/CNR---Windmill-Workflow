@@ -1,0 +1,20 @@
+version: 1
+
+job:
+  name: yaml-validation-test
+
+steps:
+  - name: Execute YAML-selected program
+    command:
+      - python3
+      - verify_yaml.py
+
+resources:
+  cpus: 1
+  memory: 512MB
+  gpus: 0
+  time: "00:02:00"
+
+outputs:
+  paths:
+    - results/yaml-proof.txt
