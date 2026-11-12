@@ -1,0 +1,32 @@
+version: 1
+
+job:
+  name: cnr-multistep-validation
+
+steps:
+  - name: Prepare data
+    command:
+      - python3
+      - prepare_data.py
+
+  - name: Analyze data
+    command:
+      - python3
+      - analyze_data.py
+
+  - name: Generate report
+    command:
+      - python3
+      - generate_report.py
+
+resources:
+  cpus: 1
+  memory: 512MB
+  gpus: 0
+  time: "00:02:00"
+
+outputs:
+  paths:
+    - results/data.csv
+    - results/summary.json
+    - results/report.txt
