@@ -1,0 +1,19 @@
+version: 1
+
+job:
+  name: triangle-dependency-check
+
+steps:
+  - name: Check Python dependencies
+    command:
+      - python3
+      - check_dependencies.py
+
+resources:
+  cpus: 1
+  memory: 512MB
+  gpus: 0
+  time: "00:02:00"
+
+outputs:
+  paths: []
